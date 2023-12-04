@@ -13,6 +13,7 @@ const Notes = () => {
             <a href="https://github.com/gitname/react-gh-pages"> Deploying a React App to GutHub Pages</a><br></br>
             <a href="https://blog.logrocket.com/how-switch-node-js-versions-nvm/"> How to switch Node versions with NVM</a><br></br>
             <a href="https://reactrouter.com/en/main/start/tutorial">React Router main tutorial</a><br></br>
+            <a href="https://reactjs.org/docs/lists-and-keys.html">Reacts lists want ids</a><br></br>
         
             <h2>JavaScript Stuff</h2>
         </div>
