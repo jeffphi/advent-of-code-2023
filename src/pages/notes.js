@@ -2,6 +2,10 @@ const Notes = () => {
     return (
         <div>
             <h1>Notes</h1>
+            
+            <h2>Advent of Code Stuff</h2>
+            <a href="https://adventofcode.com/2023">Advent of Code 2023 site</a><br></br>
+            <a href="https://fraigo.github.io/text-to-json/#">Useful site for converting text to JSON</a>
             <h2>React Stuff</h2>
             <a href="https://react.dev/learn"> React Quick Start</a>
             <a href="https://code.visualstudio.com/docs/nodejs/reactjs-tutorial"> Using React in Visual Studio Code</a><br></br>
