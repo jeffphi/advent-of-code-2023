@@ -5,7 +5,7 @@ const Layout = () => {
     <>
       <nav>
         <ul>
-          <li>
+          <li >
             <Link to="/advent-of-code-2023">Home</Link>
           </li>
           <li>

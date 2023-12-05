@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { findDOMNode } from 'react-dom';
 
 export default function Day1() {
     const [input, setInput] = useState(day1_data);
@@ -6,7 +7,40 @@ export default function Day1() {
     //let items = day1_data.map((item) => <div>{item}</div>);
     //<div> <span>A</span> <span>B</span> <span>C</span> </div>
     //<div> <span>X</span> <span>Y</span> <span>Z</span> </div>
-   
+
+    function solve() {
+        let sumVal = 0;
+        for (let i = 0; i < day1_data.length; i++) {
+            sumVal += getValueFromLine(i, day1_data[i][0]);
+        }
+
+        let sum = document.getElementById('sum');
+        findDOMNode(sum).innerHTML = sumVal;
+      }
+
+      function getValueFromLine(row, line){
+        let first = 0;
+        let last = -1;
+        let firstFound = false;
+        
+        for(let j = 0; j < line.length; j++){
+            if(!isNaN(parseInt(line[j]))){
+                if(!firstFound){
+                    firstFound = true;
+                    first = parseInt(line[j]);
+                } else{
+                    last = parseInt(line[j]);
+                }
+                let elt = document.getElementById(row+"-"+j);
+                findDOMNode(elt).style.color = "red";
+            }
+        }
+        if (last == -1){
+            last = first;
+        }
+        return first*10 + last;
+      }
+    
     const items = [];
     for (let i = 0; i < day1_data.length; i++) {
 
@@ -14,18 +48,25 @@ export default function Day1() {
         const spans = [];
         for(let j = 0; j < line.length; j++)
         {
-            spans.push(<span key={j} col={j}>{line[j]}</span>);
+            //id format: row-col
+            spans.push(<span key={j} id={i+"-"+j}>{line[j]}</span>);
         }
-        items.push(<div key={i} row={i}>{spans}</div>);
+        items.push(<div key={i}>{spans}</div>);
     }
     return (
         <div>
             <h1>Day 1</h1>
+            <button onClick={solve}>
+             Solve!
+            </button>
+            <div> Sum: <span id="sum">0</span></div>
             {items}
         </div>
     )
   };
+
   
+
   //TODO: Ideally each item would not itself be an array (of one) :P
   const day1_data = [
     ["2qlljdqcbeight"],
