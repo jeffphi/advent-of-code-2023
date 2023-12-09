@@ -1,17 +1,13 @@
 import { Outlet, Link } from "react-router-dom";
+import './page.css';
 
 const Layout = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li >
+      <nav className="nav">
             <Link to="/advent-of-code-2023">Home</Link>
-          </li>
-          <li>
+            <span> | </span>
             <Link to="/advent-of-code-2023/notes">Notes</Link>
-          </li>
-        </ul>
       </nav>
 
       <Outlet />

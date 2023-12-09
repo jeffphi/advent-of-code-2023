@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { findDOMNode } from 'react-dom';
 
+import './page.css';
+
 export default function Day1() {
     const [input, setInput] = useState(day1_data);
 
@@ -40,6 +42,153 @@ export default function Day1() {
         }
         return first*10 + last;
       }
+
+      function getValueFromLinePart2(row, line){
+        let first = 0;
+        let last = -1;
+        let firstFound = false;
+        
+        let index = 0;
+
+        while (index < line.length){
+            // Check digit
+            if(!isNaN(parseInt(line[index]))){
+                if(!firstFound){
+                    firstFound = true;
+                    first = parseInt(line[index]);
+                } else {
+                    last = parseInt(line[index]);
+                }
+                let elt = document.getElementById(row+"-"+index);
+                findDOMNode(elt).style.color = "green";
+                index += 1;
+            }
+            else{ //Check for word
+                if(line.startsWith('one',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 3;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 1;
+                    } else {
+                        last = 1;
+                    }
+                }
+                else if(line.startsWith('two',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 3;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 2;
+                    } else {
+                        last = 2;
+                    }
+                }
+                else if(line.startsWith('three',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 5;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 3;
+                    } else {
+                        last = 3;
+                    }
+                }
+                else if(line.startsWith('four',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 4;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 4;
+                    } else {
+                        last = 4;
+                    }
+                }
+                else if(line.startsWith('five',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 4;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 5;
+                    } else {
+                        last = 5;
+                    }
+                }
+                else if(line.startsWith('six',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 3;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 6;
+                    } else {
+                        last = 6;
+                    }
+                }
+                else if(line.startsWith('seven',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 5;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 7;
+                    } else {
+                        last = 7;
+                    }
+                }
+                else if(line.startsWith('eight',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 5;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 8;
+                    } else {
+                        last = 8;
+                    }
+                }
+                else if(line.startsWith('nine',index)){
+                    let elt = document.getElementById(row+"-"+index);
+                    findDOMNode(elt).style.color = "green";
+                    index += 4;
+                    if(!firstFound){
+                        firstFound = true;
+                        first = 9;
+                    } else {
+                        last = 9;
+                    }
+                }
+                else { //Neither, move on...
+                    index += 1;
+                }
+            }
+            
+        }
+        if (last == -1){
+            last = first;
+        }
+        return first*10 + last;
+      }
+
+      function solve_part2() {
+        let sumPart2 = 0;
+        for (let i = 0; i < day1_data.length; i++) {
+            let rowVal = getValueFromLinePart2(i, day1_data[i][0]);
+            sumPart2 += rowVal;
+
+            let rowSumElt = document.getElementById('row-sum-'+i);
+            findDOMNode(rowSumElt).innerHTML = rowVal;
+        }
+
+        let sum = document.getElementById('sum-2');
+        findDOMNode(sum).innerHTML = sumPart2;
+
+      }
     
     const items = [];
     for (let i = 0; i < day1_data.length; i++) {
@@ -51,16 +200,29 @@ export default function Day1() {
             //id format: row-col
             spans.push(<span key={j} id={i+"-"+j}>{line[j]}</span>);
         }
-        items.push(<div key={i}>{spans}</div>);
+        items.push(<div key={i}>{spans} Row Val:(<span id={"row-sum-"+i}></span>)</div>);
     }
     return (
-        <div>
-            <h1>Day 1</h1>
-            <button onClick={solve}>
-             Solve!
-            </button>
-            <div> Sum: <span id="sum">0</span></div>
-            {items}
+        <div className="grid-container">
+            <div className="title">Day 1</div>
+                    <div className="grid-div">
+                        {items}
+                    </div>
+                    <div>
+                        <button onClick={solve}>
+                            Solve Part 1!
+                        </button>
+                        <div>
+                            Sum: <span id="sum">0</span>
+                        </div>
+                        <button onClick={solve_part2}>
+                            Solve Part 2!
+                        </button>
+                        <div>
+                            Sum: <span id="sum-2">0</span>
+                        </div>
+                    </div>
+               
         </div>
     )
   };
@@ -1069,4 +1231,14 @@ export default function Day1() {
     ["crjgvsjxcpgtx8one"],
     ["nvfive8hvdth6fgnfgh"],
     ["8hl5eight"],
+  ];
+
+  const day1_data_test = [
+    ["two1nine"],
+    ["eightwothree"],
+    ["abcone2threexyz"],
+    ["xtwone3four"],
+    ["4nineeightseven2"],
+    ["zoneight234"],
+    ["7pqrstsixteen"],
   ];
