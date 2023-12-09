@@ -67,7 +67,7 @@ export default function Day1() {
                 if(line.startsWith('one',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 3;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 1;
@@ -78,7 +78,7 @@ export default function Day1() {
                 else if(line.startsWith('two',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 3;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 2;
@@ -89,7 +89,7 @@ export default function Day1() {
                 else if(line.startsWith('three',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 5;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 3;
@@ -100,7 +100,7 @@ export default function Day1() {
                 else if(line.startsWith('four',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 4;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 4;
@@ -111,7 +111,7 @@ export default function Day1() {
                 else if(line.startsWith('five',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 4;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 5;
@@ -122,7 +122,7 @@ export default function Day1() {
                 else if(line.startsWith('six',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 3;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 6;
@@ -133,7 +133,7 @@ export default function Day1() {
                 else if(line.startsWith('seven',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 5;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 7;
@@ -144,7 +144,7 @@ export default function Day1() {
                 else if(line.startsWith('eight',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 5;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 8;
@@ -155,7 +155,7 @@ export default function Day1() {
                 else if(line.startsWith('nine',index)){
                     let elt = document.getElementById(row+"-"+index);
                     findDOMNode(elt).style.color = "green";
-                    index += 4;
+                    index += 1;
                     if(!firstFound){
                         firstFound = true;
                         first = 9;
