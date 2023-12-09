@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/advent-of-code-2023/static/css/main.46773d84.css",
-    "main.js": "/advent-of-code-2023/static/js/main.e978ef30.js",
+    "main.css": "/advent-of-code-2023/static/css/main.235304df.css",
+    "main.js": "/advent-of-code-2023/static/js/main.dcf90570.js",
     "static/js/787.4ff288d7.chunk.js": "/advent-of-code-2023/static/js/787.4ff288d7.chunk.js",
     "static/media/logo.svg": "/advent-of-code-2023/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/advent-of-code-2023/index.html",
-    "main.46773d84.css.map": "/advent-of-code-2023/static/css/main.46773d84.css.map",
-    "main.e978ef30.js.map": "/advent-of-code-2023/static/js/main.e978ef30.js.map",
+    "main.235304df.css.map": "/advent-of-code-2023/static/css/main.235304df.css.map",
+    "main.dcf90570.js.map": "/advent-of-code-2023/static/js/main.dcf90570.js.map",
     "787.4ff288d7.chunk.js.map": "/advent-of-code-2023/static/js/787.4ff288d7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.46773d84.css",
-    "static/js/main.e978ef30.js"
+    "static/css/main.235304df.css",
+    "static/js/main.dcf90570.js"
   ]
 }
