@@ -20,7 +20,41 @@ export default function Day2() {
     }
 
     function solve_part2(){
-        
+        let retVal = 0;
+        for (let i = 0; i < data.length; i++) {
+            retVal += getGamePower(data[i]);
+        }
+
+        let answer2Elt = document.getElementById('answer-2');
+        findDOMNode(answer2Elt).innerHTML = retVal;
+    }
+
+    function getGamePower(line){
+        let maxR = 0
+        let maxG = 0;
+        let maxB = 0;
+
+        let colonIndex = line.indexOf(":");
+        let turnsArray = line.substring(colonIndex+1).split(";");
+        for(let i = 0; i < turnsArray.length; i++){
+            let sets = turnsArray[i].split(",");
+            for (const set of sets){
+                let vals = getRGBFromSet(set);
+                if(vals[0] > maxR){
+                    maxR = vals[0];
+                }
+                if(vals[1] > maxG){
+                    maxG = vals[1];
+                }
+                if(vals[2] > maxB){
+                    maxB = vals[2];
+                }
+            }
+        }
+
+        console.log("Max R-G-B:"+maxR+"-"+maxG+"-"+maxB);
+
+        return maxR * maxG * maxB;
     }
 
     // A game looks like: "Game 1: 7 blue, 9 red, 1 green; 8 green; 10 green, 5 blue, 3 red; 11 blue, 5 red, 1 green" 
@@ -99,13 +133,13 @@ export default function Day2() {
                     Solve Part 1!
                 </button>
                 <div>
-                    Sum: <span id="answer-1">0</span>
+                    Game Sum: <span id="answer-1">0</span>
                 </div>
                 <button onClick={solve_part2}>
                     Solve Part 2!
                 </button>
                 <div>
-                    Sum: <span id="answer-2">0</span>
+                    Power Sum: <span id="answer-2">0</span>
                 </div>
             </div>
         </div>
