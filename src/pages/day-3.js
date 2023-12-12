@@ -4,6 +4,7 @@ import './page.css';
 export default function Day3() {
     function solve_part1(){
         let retVal = 0;
+        let retVal2 = 0;
 
         let numbersList = findNumbers();
 
@@ -13,16 +14,37 @@ export default function Day3() {
         for (const number of numbersList){
             for (const point of number.points){
                 if (symbolsMap.has(point)){
+                    
+                    // Part 1
                     retVal += number.val;
-                    //console.log('Adding: '+number.val);
+
+                    //Part 2
+                    symbolsMap.get(point).numbers.push(number.val); 
+                    
                 }
             }
         }
 
-        console.log(retVal);
+        //Part 1
+        console.log("Part 1:"+retVal);
 
         let answer1Elt = document.getElementById('answer-1');
         findDOMNode(answer1Elt).innerHTML = retVal;
+
+        //Part 2
+        for(const item of symbolsMap.values()){
+            if(item.symbol === '*' && item.numbers.length === 2){
+                retVal2 += (item.numbers[0]*item.numbers[1]);
+                console.log(item.symbol+': '+item.numbers);
+            }
+        }
+
+        console.log("Part 2:"+retVal2);
+
+        let answer2Elt = document.getElementById('answer-2');
+        findDOMNode(answer2Elt).innerHTML = retVal2;
+
+
     }
 
     function findNumbers(){
@@ -76,8 +98,8 @@ export default function Day3() {
                     }
                     numList.push(tempNum);
                     c += len-1;
-                    console.log(tempNum.val);
-                    console.log(tempNum.points);
+                    //console.log(tempNum.val);
+                    //console.log(tempNum.points);
                 }
             }
             r++;
@@ -93,7 +115,7 @@ export default function Day3() {
             for(let c = 0; c < line.length; c++){
                 if(line[c] != '.' && isNaN(parseInt(line[c]))){
                     //console.log('Found a char: '+line[c]);
-                    symbols.set(r+','+c,'');
+                    symbols.set(r+','+c,{symbol:line[c], numbers:[]});
                 }
             }
         }
