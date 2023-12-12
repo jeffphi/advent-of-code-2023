@@ -7,6 +7,7 @@ import Notes from "./pages/notes";
 import NoPage from "./pages/no-page";
 import Day1 from './pages/day-1';
 import Day2 from './pages/day-2';
+import Day3 from './pages/day-3';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="day-1" element={<Day1 />} />
           <Route path="day-2" element={<Day2 />} />
+          <Route path="day-3" element={<Day3 />} />
           <Route path="notes" element={<Notes />} />
           <Route path="*" element={< NoPage />} />
         </Route>
