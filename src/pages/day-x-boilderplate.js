@@ -40,13 +40,13 @@ export default function DayX() {
                     Solve Part 1!
                 </button>
                 <div>
-                    Game Sum: <span id="answer-1">0</span>
+                    Answer: <span id="answer-1">0</span>
                 </div>
                 <button onClick={solve_part2}>
                     Solve Part 2!
                 </button>
                 <div>
-                    Power Sum: <span id="answer-2">0</span>
+                    Answer: <span id="answer-2">0</span>
                 </div>
             </div>
         </div>
