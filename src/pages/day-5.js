@@ -161,7 +161,33 @@ export default function Day5() {
     }
 
     function solve_part2(){
-        let retVal = 0;
+        let retVal = Number.MAX_SAFE_INTEGER;
+
+        let startTime = new Date();
+
+        for(let i = 0; i < seeds.length; i += 2){
+            let startSeed = seeds[i];
+            let range = seeds[i+1];
+
+            for(let seed = startSeed; seed < startSeed + range; seed++){
+                let soil = getSoil(seed);
+                let fertilizer = getFertilizer(soil);
+                let water = getWater(fertilizer);
+                let light = getLight(water);
+                let temperature = getTemperature(light);
+                let humidity = getHumidity(temperature);
+                let location = getLocation(humidity);
+
+                if (location < retVal){
+                    retVal = location;
+                }
+            }
+        }
+
+        let timeDiff = new Date() - startTime; //in ms
+        timeDiff /= 1000;
+        let seconds = Math.round(timeDiff);
+        console.log('Execution time (sec): ' + seconds);
 
         let answer2Elt = document.getElementById('answer-2');
         findDOMNode(answer2Elt).innerHTML = retVal;
