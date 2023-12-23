@@ -22,6 +22,9 @@ const Home = () => {
         <div>
           <Link to="/advent-of-code-2023/day-6">Day 6</Link>
         </div>
+        <div>
+          <Link to="/advent-of-code-2023/day-7">Day 7</Link>
+        </div>
       </div>
     );
   };
